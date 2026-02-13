@@ -2,10 +2,24 @@ package oop_001_johnthor.week02
 
 import java.util.Scanner
 
-// Class didefinisikan di luar main
-class Student(val name: String, val nim: String, var major: String) {
+class Student (
+    val name: String,
+    val nim: String,
+    var gpa: Double = 0.0, // Default Argument
+    var major: String
+) {
+    init {
+        // Validasi Sederhana: Cek panjang NIM
+        if (nim.length != 5) {
+            println("WARNING: Objek tercipta dengan NIM ($nim) yang tidak valid!")
+            println("Data mahasiswa $name mungkin akan bermasalah di sistem.")
+        } else {
+            println("LOG: Objek Student $name berhasil dialokasikan di Memory.")
+        }
+    }
 
-    // LANGKAH 4: Secondary Constructor berada di dalam body class
+    // Secondary Constructor
+    // Wajib memanggil Primary Constructor menggunakan 'this()'
     constructor(name: String, nim: String) : this(name, nim, major = "Non-Matriculated") {
         println("LOG: Menggunakan constructor jalur umum (Tanpa Jurusan).")
     }
@@ -22,21 +36,17 @@ fun main() {
     print("Masukkan NIM (Wajib 5 Karakter): ")
     val nim = scanner.next()
 
-    scanner.nextLine() // Bersihkan buffer
+    scanner.nextLine() // Bersihkan buffer newline (Penyakit klasik Scanner!)
 
+    // Validasi di sisi pemanggil (Main)
     if (nim.length != 5) {
         println("ERROR: Pendaftaran dibatalkan. NIM harus 5 karakter!")
     } else {
-        print("Masukkan Jurusan (Kosongkan jika belum ada): ")
-        val major = scanner.nextLine()
+        // Pemilihan Jalur Pendaftaran
+        print("Pilih Jalur (1. Reguler, 2. Umum): ")
+        val type = scanner.nextInt()
+        scanner.nextLine() // Consume newline
 
-        if (major.isEmpty()) {
-            // Memanggil Secondary Constructor
-            val s1 = Student(name, nim)
-        } else {
-            // Memanggil Primary Constructor
-            val s1 = Student(name, nim, major)
-        }
-        println("Status: Pendaftaran Selesai.")
+
     }
 }
