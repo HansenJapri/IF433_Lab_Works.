@@ -1,28 +1,23 @@
-//package oop_001_johnthor.week02
+// Pastikan baris package ini sama persis di semua file dalam folder week02
+package oop_00000108259_HansenJapri.week02
 
 class Student (
     val name: String,
     val nim: String,
+    var gpa: Double = 0.0, // Default Argument
     var major: String
-){
-    // Body class kosong dulu
-}
-
-class Student (val name: String, val nim: String, var major: String) {
-
+) {
     init {
-        // Validasi Sederhana: Cek panjang NIM
+        // Validasi NIM 5 karakter
         if (nim.length != 5) {
-            println("WARNING: Objek tercipta dengan NIM ($nim) yang tidak valid!")
-            println("Data mahasiswa $name mungkin akan bermasalah di sistem.")
+            println("WARNING: NIM tidak valid!")
         } else {
-            println("LOG: Objek Student $name berhasil dialokasikan di Memory.")
+            println("LOG: Objek $name berhasil dibuat.")
         }
     }
 
     // Secondary Constructor
-    // Wajib memanggil Primary Constructor menggunakan 'this()'
     constructor(name: String, nim: String) : this(name, nim, major = "Non-Matriculated") {
-        println("LOG: Menggunakan constructor jalur umum (Tanpa Jurusan).")
+        println("LOG: Jalur umum (Tanpa Jurusan).")
     }
 }
