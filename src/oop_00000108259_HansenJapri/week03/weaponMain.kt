@@ -4,7 +4,7 @@ fun main() {
     val sword = Weapon("Excalibur")
     println("--- Mengamankan Senjata: ${sword.name} ---")
 
-    // Inisialisasi awal
+
     sword.damage = 100
     println("Damage Awal: ${sword.damage} (${sword.tier})")
 
