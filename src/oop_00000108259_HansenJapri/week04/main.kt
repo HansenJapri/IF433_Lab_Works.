@@ -18,4 +18,16 @@ fun main() {
     myEV.accelerate()
     myEV.honk()
     myEV.openTrunk()
+
+
+    val manager = Manager("Budi", 8000000)
+    val developer = Developer("Hansen", 7000000, "Kotlin")
+
+    println("=== Data Manager ===")
+    manager.work()
+    println("Bonus: Rp ${manager.calculateBonus()}")
+
+    println("\n=== Data Developer ===")
+    developer.work()
+    println("Bonus: Rp ${developer.calculateBonus()}")
 }
