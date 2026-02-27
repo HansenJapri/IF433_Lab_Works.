@@ -7,7 +7,6 @@ class Manager(name: String, baseSalary: Int) : Employee(name, baseSalary) {
     }
 
     override fun calculateBonus(): Int {
-        // Bonus standar (10%) + Tunjangan jabatan Rp 500.000
         return super.calculateBonus() + 500000
     }
 }
