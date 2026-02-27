@@ -20,5 +20,15 @@ fun main() {
     myEV.openTrunk()
 
 
+    val manager = Manager("Budi", 8000000)
+    val developer = Developer("Hansen", 7000000, "Kotlin")
 
+    println("=== Data Manager ===")
+    manager.work()
+    println("Bonus: Rp ${manager.calculateBonus()}")
+
+    println("\n=== Data Developer ===")
+    developer.work()
+    // Menggunakan calculateBonus() dari Employee (10% dari 7jt = 700rb)
+    println("Bonus: Rp ${developer.calculateBonus()}")
 }
