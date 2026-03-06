@@ -40,4 +40,31 @@ fun main() {
             return 3.14 * jariJari * jariJari
         }
     }
+
+
+
+
+    val myWallet = EWallet(accountName = "Alex", balance = 50000.0)
+    val myCard = CreditCard(accountName = "Alex", limit = 100000.0)
+
+    val daftarPembayaran: List<PaymentMethod> = listOf(myWallet, myCard)
+
+    val tagihan = 75000.0
+    println("Tagihan belanja: Rp$tagihan")
+    println("========================================")
+
+    for (metode in daftarPembayaran) {
+        println("\nMencoba membayar dengan: ${metode.javaClass.simpleName}")
+
+        metode.processPayment(tagihan)
+
+        if (metode is EWallet) {
+            println("-> Sistem mendeteksi E-Wallet. Menjalankan prosedur otomatis...")
+
+            metode.topUp(50000.0)
+
+            println("-> Mencoba pembayaran ulang...")
+            metode.processPayment(tagihan)
+        }
+    }
 }
