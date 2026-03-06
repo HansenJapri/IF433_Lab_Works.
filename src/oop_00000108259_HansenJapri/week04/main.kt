@@ -29,6 +29,5 @@ fun main() {
 
     println("\n=== Data Developer ===")
     developer.work()
-    // Menggunakan calculateBonus() dari Employee (10% dari 7jt = 700rb)
     println("Bonus: Rp ${developer.calculateBonus()}")
 }
