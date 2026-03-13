@@ -7,7 +7,6 @@ class SmartCCTV(
 
     override fun turnOn() {
         println("[$name] Sistem CCTV aktif.")
-        // Otomatis merekam saat dinyalakan sesuai instruksi tugas
         startRecord()
     }
 

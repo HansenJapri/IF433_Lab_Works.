@@ -20,11 +20,11 @@ class SmartHomeHub {
     fun activateSecurityMode() {
         println("\n=== MENGAKTIFKAN MODE KEAMANAN ===")
         for (device in devices) {
-            // Cek jika bisa merekam
+
             if (device is Recordable) {
                 device.startRecord()
             }
-            // Cek jika speaker untuk bunyi sirine
+
             if (device is SmartSpeaker) {
                 device.playMusic("Sirine Peringatan")
             }
