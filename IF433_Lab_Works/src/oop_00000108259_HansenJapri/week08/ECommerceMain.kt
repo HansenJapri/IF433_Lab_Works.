@@ -1,3 +1,5 @@
+package oop_00000108259_HansenJapri.week08
+
 fun main() {
     // 1. Data kotor JSON sesuai instruksi
     val rawApiData: List<Map<String, Any?>> = listOf(
