@@ -47,16 +47,15 @@ fun main() {
     println("Hasil cast + fallback: $safeString")
 
 
-
-    class Order(val orderId: String, val amount: Double) {
-
-        // Inner class untuk menangani pembayaran
-        inner class Payment(val paymentId: String) {
-            fun processPayment() {
-                // Bisa mengakses properti dari outer class (Order) secara langsung
-                println("Memproses pembayaran $paymentId untuk order $orderId sebesar $amount")
-            }
-        }
+    println("=== TEST THE RED BUTTON (!! ===")
+    val toxicData: String? = null
+    try {
+        val length = toxicData!!.length
+    }catch (e: NullPointerException) {
+        println("CRASH (NPE)! Jangan gunakan !! secara sembarangan.")
     }
+
+
+
 
 }
