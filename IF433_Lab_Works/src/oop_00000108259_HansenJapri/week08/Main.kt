@@ -46,4 +46,17 @@ fun main() {
     val safeString = someObject as? String ?: "Unknown String"
     println("Hasil cast + fallback: $safeString")
 
+
+
+    class Order(val orderId: String, val amount: Double) {
+
+        // Inner class untuk menangani pembayaran
+        inner class Payment(val paymentId: String) {
+            fun processPayment() {
+                // Bisa mengakses properti dari outer class (Order) secara langsung
+                println("Memproses pembayaran $paymentId untuk order $orderId sebesar $amount")
+            }
+        }
+    }
+
 }
