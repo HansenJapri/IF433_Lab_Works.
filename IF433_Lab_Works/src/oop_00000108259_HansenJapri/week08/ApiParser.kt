@@ -20,17 +20,21 @@ class ApiParser {
         }
     }
 
-    // Fungsi 2: UNTUK CHECKOUT (Ini yang bikin merah kalau belum ada)
     fun checkout(product: Product) {
-        // Ekstrak ID berdasarkan tipe produk (Sealed Class)
+        // 1. Cetak detail spesifik produk sebelum transaksi
+        when (product) {
+            is Electronic -> println("Processing: ${product.name} (Warranty ${product.warrantyMonths} Months)")
+            is Clothing -> println("Processing: ${product.name} (Size ${product.size})")
+        }
+
+        // 2. Ekstrak ID untuk dikirim ke Java
         val id = when (product) {
             is Electronic -> product.id
             is Clothing -> product.id
         }
 
-        // Memanggil service Java (Gunakan !! sesuai instruksi)
+        // 3. Panggil Java service (Tetap pakai !! sesuai tugas)
         val transactionId = JavaPaymentService.processPayment(id)!!
-
-        println("Transaction ID: $transactionId")
+        println("Transaction ID: $transactionId\n") // Tambah \n biar rapi ada jarak
     }
 } // <--- Pastikan kurung tutup kelasnya ada di paling bawah
