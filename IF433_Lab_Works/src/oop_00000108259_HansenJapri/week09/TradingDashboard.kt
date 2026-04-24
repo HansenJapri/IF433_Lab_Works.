@@ -55,5 +55,11 @@ fun main() {
 
 
 
+    val uniquePairs = tradeHistory
+        .map { it.pair }
+        .toSet()
+
+    println("\n--- DAFTAR KOIN UNIK ---")
+    uniquePairs.forEach { println("Coin: $it") }
 
 }
