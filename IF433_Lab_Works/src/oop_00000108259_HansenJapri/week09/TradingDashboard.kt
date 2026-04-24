@@ -62,4 +62,19 @@ fun main() {
     println("\n--- DAFTAR KOIN UNIK ---")
     uniquePairs.forEach { println("Coin: $it") }
 
+
+
+
+    println("=== CRYPTO TRADING DASHBOARD ===")
+    topPerformersString.forEach { line ->
+        println(line)
+    }
+
+    println("--------------------------------")
+    worstPerformersString.forEach { line ->
+        println(line)
+    }
+    println("================================")
+
+
 }
