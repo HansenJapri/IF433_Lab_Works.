@@ -9,4 +9,10 @@ fun main() {
         TradeLog("SOLUSDT", "LONG", 10, 8.2, "OPEN"),
         TradeLog("BTCUSDT", "SHORT", 25, -2.5, "OPEN")
     )
+
+    tradeHistory.forEach { trade ->
+        if (trade.status == "CLOSED") {
+            println("${trade.pair} | ${trade.position} | ${trade.leverage} | ${trade.roe} | ${trade.status}")
+        }
+    }
 }
