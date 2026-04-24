@@ -77,4 +77,22 @@ fun main() {
     println("================================")
 
 
+
+
+
+    println("\n--- LOSS LIST ---")
+    worstPerformersString.forEach { line ->
+        println(line)
+    }
+    println("\n--- TRADED COINS (UNIQUE) ---")
+    print("Pairs: ")
+    uniquePairs.forEach { pair ->
+        print("[$pair] ")
+    }
+    println("\n")
+    println("================================")
+
+
+
+
 }
