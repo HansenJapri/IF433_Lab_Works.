@@ -10,9 +10,19 @@ fun main() {
         TradeLog("BTCUSDT", "SHORT", 25, -2.5, "OPEN")
     )
 
-    tradeHistory.forEach { trade ->
-        if (trade.status == "CLOSED") {
-            println("${trade.pair} | ${trade.position} | ${trade.leverage} | ${trade.roe} | ${trade.status}")
-        }
+    val closedTrades = tradeHistory.filter { it.status == "CLOSED" }
+
+    println("CLOSED TRADES")
+    closedTrades.forEach { trade ->
+        println("${trade.pair} | ${trade.position} | ${trade.leverage} | ${trade.roe} | ${trade.status}")
     }
+
+
+    val winningTrades = closedTrades.filter { it.roe > 0 }
+    println("WINNING TRADES")
+    winningTrades.forEach { trade ->
+        println("${trade.pair} | ${trade.position} | ${trade.leverage} | ${trade.roe} | ${trade.status}")
+    }
+
+
 }
