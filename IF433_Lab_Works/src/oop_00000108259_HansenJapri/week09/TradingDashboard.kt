@@ -25,4 +25,9 @@ fun main() {
     }
 
 
+    val losingTrades = closedTrades.filter { it.roe <= 0 }
+    println("LOSING TRADES")
+    losingTrades.forEach { trade ->
+        println("${trade.pair} | ${trade.position} | ${trade.leverage} | ${trade.roe} | ${trade.status}")
+    }
 }
