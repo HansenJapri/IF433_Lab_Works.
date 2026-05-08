@@ -1,12 +1,12 @@
 package oop_00000108259_HansenJapri.week11
 
-data class User(var nama: String = "", var age: Int = 0)
+data class User(var name: String = "", var age: Int = 0)
 
 
 fun main() {
     println("=== TEST APPLY ===")
     val user = User().apply {
-        nama = "Alex"
+        name = "Alex"
         age = 25
     }
     println(user)
