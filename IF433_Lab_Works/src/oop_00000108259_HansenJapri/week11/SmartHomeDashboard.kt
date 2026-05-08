@@ -13,4 +13,15 @@ fun main() {
     }
 
     println("Perangkat berhasil ditambahkan: ${homeDevices.first()}")
+
+    val ezvizCamera = SmartDevice("Ezviz Outdoor", "Camera").apply {
+        isOnline = true
+        powerLoad = 5
+    }.also {
+        println("(LOG) Kamera terhubung")
+        homeDevices.add(it)
+    }
+
+
+
 }
