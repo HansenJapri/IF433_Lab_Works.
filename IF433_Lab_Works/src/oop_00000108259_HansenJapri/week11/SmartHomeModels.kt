@@ -8,3 +8,6 @@ fun SmartDevice.diagnose(): String {
 }
 
 
+
+
+
