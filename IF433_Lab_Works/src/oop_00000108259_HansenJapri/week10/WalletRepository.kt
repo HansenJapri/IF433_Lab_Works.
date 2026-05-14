@@ -10,4 +10,14 @@ class WalletRepository<T : Any> {
     fun getAll(): List<T> {
         return items
     }
+
+    fun search(query: String): List<T> {
+        return items.filter { item ->
+            when (item) {
+                is Coin -> item.name.contains(query, ignoreCase = true)
+                is Transaction -> item.id.contains(query, ignoreCase = true)
+                else -> false
+            }
+        }
+    }
 }
