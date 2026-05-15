@@ -34,6 +34,14 @@ fun main() {
     }
 
     println()
+
+
+    println("=== JADWAL MAKAN SORE ===")
+    currentKibbleStock = 1000
+
+    val soreResult = runCatching {
+        dispenseKibble(30, currentKibbleStock, false)
+    }
 }
 
 
