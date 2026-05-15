@@ -10,3 +10,20 @@ fun divide(a: Int, b: Int): Int {
         println("Division attempt finished")
     }
 }
+
+fun main() {
+
+    println("=== TEST TRY AS EXPRESSION ===")
+    val inputString = "123A"
+
+    val result: Int = try {
+        inputString.toInt()
+    } catch (e: NumberFormatException) {
+        -1
+    }
+
+    println("Hasil parsing: $result")
+
+    println("\n=== TEST BASIC TRY-CATCH ===")
+    println("Hasil: ${divide(10, 0)}")
+}
