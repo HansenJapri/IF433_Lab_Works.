@@ -55,4 +55,16 @@ fun main() {
 
     saveTrades(simulatedTrades, "crypto_trades.csv") [cite: 158]
     println("Berhasil menginisialisasi dan menyimpan data trade simulasi.")
+
+
+
 }
+
+
+
+
+
+
+
+
+
