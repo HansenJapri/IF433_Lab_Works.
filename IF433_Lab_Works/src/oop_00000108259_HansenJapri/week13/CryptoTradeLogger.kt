@@ -49,16 +49,20 @@ fun loadTrades(path: String): List<TradeRecord> {
 
 fun main() {
     val simulatedTrades = listOf(
-        TradeRecord(id = 1, symbol = "BTCUSDT", type = "Long", margin = 50.0, pnl = 15.5), [cite: 129, 157, 158]
-    TradeRecord(id = 2, symbol = "ETHUSDT", type = "Short", margin = 30.0, pnl = -5.2) [cite: 129, 157, 158]
+        TradeRecord(id = 1, symbol = "BTCUSDT", type = "Long", margin = 50.0, pnl = 15.5),
+        TradeRecord(id = 2, symbol = "ETHUSDT", type = "Short", margin = 30.0, pnl = -5.2)
     )
+    saveTrades(simulatedTrades, "crypto_trades.csv")
 
-    saveTrades(simulatedTrades, "crypto_trades.csv") [cite: 158]
-    println("Berhasil menginisialisasi dan menyimpan data trade simulasi.")
+    File("crypto_trades.csv").appendText("CORRUPT_ID, DOGEUSDT, Hold, XX, YY\n")
 
-
-
+    val loadedData = loadTrades("crypto_trades.csv")
+    val totalPnl = loadedData.sumOf { it.pnl }
 }
+
+
+
+
 
 
 
