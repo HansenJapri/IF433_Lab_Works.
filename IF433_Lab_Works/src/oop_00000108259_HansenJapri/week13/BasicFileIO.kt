@@ -7,4 +7,8 @@ fun main() {
     file.writeText("Line 1: inisialisasi sistem.\n")
     println("File berhasil dibuat dan ditulis")
 
+    file.appendText("Line 2: menambahkan konfigurasi baru\n")
+    println("Teks berhasil di-append")
+
+
 }
