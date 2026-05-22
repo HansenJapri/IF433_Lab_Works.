@@ -37,10 +37,22 @@ fun saveTrades(trades: List<TradeRecord>, path: String) {
 
 fun loadTrades(path: String): List<TradeRecord> {
     return try {
-
         File(path).readLines().mapNotNull { fromCsvTrade(it) }
     } catch (e: FileNotFoundException) {
+
         println("Error: File tidak ditemukan!")
         emptyList()
+    }
+}
 
 
+
+fun main() {
+    val simulatedTrades = listOf(
+        TradeRecord(id = 1, symbol = "BTCUSDT", type = "Long", margin = 50.0, pnl = 15.5), [cite: 129, 157, 158]
+    TradeRecord(id = 2, symbol = "ETHUSDT", type = "Short", margin = 30.0, pnl = -5.2) [cite: 129, 157, 158]
+    )
+
+    saveTrades(simulatedTrades, "crypto_trades.csv") [cite: 158]
+    println("Berhasil menginisialisasi dan menyimpan data trade simulasi.")
+}
