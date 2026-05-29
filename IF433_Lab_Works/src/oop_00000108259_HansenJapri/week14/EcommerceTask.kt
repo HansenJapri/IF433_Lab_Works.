@@ -1,19 +1,23 @@
-package oop_00000108259_HansenJapri.week14
+interface OrderRepository {
+    fun saveOrder(itemName: String, finalPrice: Double, customerType: String)
+}
 
-class BadOrderProcessor {
+class CsvOrderRepository : OrderRepository {
     private val file = File("orders.csv")
-
-    fun processOrder(itemName: String, basePrice: Double, customerType: String) {
-        val finalPrice = when (customerType) {
-            "REGULAR" -> basePrice
-            "VIP" -> basePrice * 0.90
-            else -> basePrice
+    override fun saveOrder(itemName: String, finalPrice: Double, customerType: String) {
+        FileWriter(file, true).use { writer ->
+            writer.write("$itemName, $finalPrice, $customerType\n")
         }
+    }
+}
 
-        println("Memproses pesanan $itemName seharga $finalPrice")
 
-        file.appendText("$itemName, $finalPrice, $customerType\n")
+interface NotificationService {
+    fun sendNotification(message: String)
+}
 
-        println("Email terkirim: Pesanan $itemName Anda telah dikonfirmasi!")
+class EmailNotifier : NotificationService {
+    override fun sendNotification(message: String) {
+        println("Email terkirim: $message")
     }
 }
